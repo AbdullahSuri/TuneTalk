@@ -39,7 +39,7 @@ Ensure you have the following installed:
 ### Clone the Repository
 
 ```sh
- git clone https://github.com/your-username/TuneTalk.git
+ git clone https://github.com/AbdullahSuri/TuneTalk.git
  cd TuneTalk
 ```
 
