@@ -18,9 +18,6 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Connect to MongoDB
-console.log("🚀 Loaded ENV Variables:", process.env);
-console.log("🔍 DSN:", process.env.DSN);
-console.log("🔍 spotify:", process.env.SPOTIFY_CLIENT_ID);
 mongoose.connect(process.env.DSN);
 
 // Configure Express app
