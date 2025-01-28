@@ -18,6 +18,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Connect to MongoDB
+console.log(process.env.DSN)
 mongoose.connect(process.env.DSN);
 
 // Configure Express app
