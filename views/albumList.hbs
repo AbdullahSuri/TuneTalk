@@ -1,0 +1,36 @@
+<h1 class="text-center">Albums</h1>
+
+<form method="post" action="/albums/search" class="form">
+  <input
+    type="text"
+    name="query"
+    placeholder="Search albums..."
+    class="form-input"
+  />
+  <button
+    type="submit"
+    class="form-button"
+  >
+    Search
+  </button>
+</form>
+
+<ul class="album-list">
+  {{#each albums}}
+    <li class="album-item">
+      <img
+        src="{{this.coverImage}}"
+        alt="Cover of {{this.title}}"
+        class="album-image"
+      />
+      <a
+        href="/album/{{this._id}}"
+        class="album-link"
+      >
+        {{this.title}} by {{this.artist}}
+      </a>
+    </li>
+  {{else}}
+    <p>No albums found.</p>
+  {{/each}}
+</ul>

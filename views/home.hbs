@@ -1,0 +1,60 @@
+<div id="outer" class="home-page">
+    <p class="tagline">Discover, rate, and immerse yourself in the rhythm of music with TuneTalk – your ultimate destination for album reviews and musical discovery! Whether you're a casual listener or a die-hard music enthusiast, TuneTalk brings together a community of music lovers united by their passion for sound and storytelling. With TuneTalk, you can create a personalized account to dive into an ever-growing library of albums spanning genres, decades, and artists. Explore curated album collections, rediscover timeless classics, or venture into uncharted musical territories. Share your voice by submitting your own reviews and ratings, helping shape the platform's collective insights. Each album showcases an aggregated rating based on user feedback, alongside a vibrant list of reviews where every voice matters. Join the community, express your opinions, and let TuneTalk be your gateway to uncovering the stories behind the melodies and the albums that define generations. Your next favorite track is just a click away!</p>
+
+    <div id="slider-container">
+        <button id="slider-left" class="slider-arrow">&#8249;</button>
+        <div id="slider">
+            {{#each featuredAlbums}}
+                <div class="slider-item">
+                    <a href="/album/{{this._id}}">
+                        <img src="{{this.coverImage}}" alt="{{this.title}}" class="slider-image">
+                    </a>
+                    <a href="/album/{{this._id}}" class="slider-title">{{this.title}}</a>
+                </div>
+            {{/each}}
+        </div>
+        <button id="slider-right" class="slider-arrow">&#8250;</button>
+    </div>
+
+    <nav class="navigation"></nav>
+        <ul class="nav-list">
+            <li><a href="/albums" class="nav-link">View all Albums</a></li>
+            {{!-- {{#if user}}
+                <li><a href="/profile" class="nav-link">My Profile</a></li>
+                <li><a href="/logout" class="nav-link">Logout</a></li>
+            {{else}}
+                <li><a href="/login" class="nav-link">Login</a></li>
+                <li><a href="/register" class="nav-link">Register</a></li>
+            {{/if}} --}}
+        </ul>
+    </nav>
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    const sliderLeft = document.getElementById('slider-left');
+    const sliderRight = document.getElementById('slider-right');
+
+    let offset = 0;
+
+    sliderLeft.addEventListener('click', () => {
+        const itemWidth = slider.firstElementChild.offsetWidth;
+        if (offset > 0) {
+            offset -= itemWidth;
+        } else {
+            offset = slider.scrollWidth - slider.parentElement.offsetWidth;
+        }
+        slider.style.transform = `translateX(-${offset}px)`;
+    });
+
+    sliderRight.addEventListener('click', () => {
+        const itemWidth = slider.firstElementChild.offsetWidth;
+        const maxOffset = slider.scrollWidth - slider.parentElement.offsetWidth;
+        if (offset < maxOffset) {
+            offset += itemWidth;
+        } else {
+            offset = 0;
+        }
+        slider.style.transform = `translateX(-${offset}px)`;
+    });
+</script>

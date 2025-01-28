@@ -1,0 +1,43 @@
+<div id="outer" class="album-detail">
+    <h2 class="text-center">{{album.title}} by {{album.artist}}</h2>
+    <div class="album-image-container"></div>
+        <img 
+            src="{{album.coverImage}}" 
+            alt="{{album.title}} cover" 
+            class="album-image"
+        >
+    <p class="text-gray"><strong>Genre:</strong> {{album.genre}}</p>
+    <p class="text-gray"><strong>Release Date:</strong> {{album.releaseDate}}</p>
+    {{#if album.reviews.length}}
+        <p class="text-gray"><strong>Average Rating:</strong> {{roundToTwo album.averageRating}}/5</p>
+    {{/if}}
+</div>
+
+    <h3 class="text-center">Reviews</h3>
+    <ul class="album-reviews">
+        {{#each album.reviews}}
+            <li class="review-item">
+                <p><strong>Rating:</strong> {{this.rating}}/5</p>
+                <p><strong>Comment:</strong> {{this.comment}}</p>
+                <p class="text-small"><strong>By:</strong> {{this.user.username}}</p>
+            </li>
+        {{else}}
+            <p class="text-gray">No reviews yet. Be the first to add one!</p>
+        {{/each}}
+    </ul>
+
+    {{#if user}}
+        <div class="text-center">
+            <a 
+                href="/review/new?albumId={{album._id}}" 
+                class="form-button"
+            >
+                Add a Review
+            </a>
+        </div>
+    {{else}}
+        <p class="text-gray text-center">
+            <a href="/login" class="link">Log in</a> to add a review.
+        </p>
+    {{/if}}
+</div>

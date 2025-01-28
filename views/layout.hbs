@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TuneTalk</title>
+    <link rel="icon" type="image/x-icon" href="Favicon.png">
+    <link rel="stylesheet" href="/site.css" type="text/css">
+</head>
+<body>
+    <div id="outer">
+        <header>
+            <nav>
+                <span class="home-link"><a href="/">Home</a></span>
+                <span class="login-status">
+                    {{#if user}}
+                        Logged in as: {{user.username}} | 
+                        <a href="/logout">Logout</a>
+                    {{else}}
+                        <a href="/register">Register</a>  
+                        <a href="/login">Login</a>
+                    {{/if}}
+                </span>
+            </nav>
+        </header>
+
+        <main>
+            <h1>TuneTalk</h1>
+            <div class="content">
+                {{{body}}}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{{#if error}}
+    <div style="color: red; margin-bottom: 10px;">
+        <strong>Error:</strong> {{error}}
+    </div>
+{{/if}}
+
+{{#if album}}
+    <h2>Submit a Review for {{album.title}}</h2>
+
+    <form action="/review/new" method="POST">
+        <input type="hidden" name="albumId" value="{{album._id}}">
+        
+        <label for="rating">Rating (1–5):</label>
+        <input type="number" name="rating" min="1" max="5" required>
+        
+        <label for="comment">Comment:</label>
+        <textarea name="comment" required></textarea>
+        
+        <button type="submit">Submit Review</button>
+    </form>
+{{else}}
+    <p>No album found to review.</p>
+{{/if}}
