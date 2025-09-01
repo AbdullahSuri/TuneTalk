@@ -2,10 +2,6 @@
 
 TuneTalk is a full-stack web application that allows users to discover, rate, and review music albums. The application integrates Spotify's API to fetch album data, allowing users to browse new releases, search for albums, and leave reviews.
 
-## 🌍 Live Demo
-
-The project is deployed and can be accessed here:
-[**TuneTalk on Railway**](https://tunetalk-123.up.railway.app/)
 
 ## 📌 Features
 
